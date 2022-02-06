@@ -1,10 +1,12 @@
 const PeopleList = ({ people }) => {
   return people.map(({ id, name, imgSrc }) => {
     return (
-      <li key={id}>
-        <img alt={name} src={imgSrc} />
-        <p>{name}</p>
-      </li>
+      <ul>
+        <li key={id}>
+          <img alt={name} src={imgSrc} />
+          <p>{name}</p>
+        </li>
+      </ul>
     );
   });
 };

@@ -22,13 +22,7 @@ const PeoplePage = () => {
   useEffect(() => {
     getResource(API_PEOPLE);
   }, []);
-  return (
-    <>
-      <ul>
-        {people && <PeopleList people={people} />}
-      </ul>
-    </>
-  );
+  return <>{people && <PeopleList people={people} />}</>;
 };
 
 export default PeoplePage;

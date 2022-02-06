@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getApiResource } from '../../utils/network';
 import { API_PEOPLE } from '../../constants/api';
 import { getPeopleId, getPeopleImage } from '../../services/getPeopleData';
+import PeopleList from '../../components/PeoplePage/PeopleList'
 
 const PeoplePage = () => {
   const [people, setPeople] = useState(null);
@@ -24,15 +25,7 @@ const PeoplePage = () => {
   return (
     <>
       <ul>
-        {people &&
-          people.map(({ id, name, imgSrc }) => {
-            return (
-              <li key={id}>
-                <img alt={name} src={imgSrc} />
-                <p>{name}</p>
-              </li>
-            );
-          })}
+        {people && <PeopleList people={people} />}
       </ul>
     </>
   );

@@ -1,4 +1,5 @@
 import {
+  HTTP,
   HTTPS,
   SWAPI_PEOPLE,
   SWAPI_ROOT,
@@ -6,8 +7,17 @@ import {
   GUIDE_IMG_EXTENSION,
 } from '../constants/api';
 
+/**
+ * Check protocol: HTTP || HTTPS
+ * @param {*} url
+ * @returns
+ */
+const checkProtocol = (url) => (url.indexOf(HTTPS) !== -1 ? HTTPS : HTTP);
+
 export const getID = (url, category) => {
-  return url.replace(HTTPS + SWAPI_ROOT + category, '').replace(/\//g, '');
+  return url
+    .replace(checkProtocol(url) + SWAPI_ROOT + category, '')
+    .replace(/\//g, '');
 };
 
 export const getPeopleId = (url) => getID(url, SWAPI_PEOPLE);

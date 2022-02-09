@@ -1,5 +1,5 @@
-import PeoplePage from '../PeoplePage';
 import styles from './App.module.css';
+import PeoplePage from '@containers/PeoplePage';
 
 const App = () => {
   return (

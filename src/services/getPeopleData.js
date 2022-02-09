@@ -5,7 +5,7 @@ import {
   SWAPI_ROOT,
   URL_IMG_PERSON,
   GUIDE_IMG_EXTENSION,
-} from '../constants/api';
+} from '@constants/api';
 
 /**
  * Check protocol: HTTP || HTTPS

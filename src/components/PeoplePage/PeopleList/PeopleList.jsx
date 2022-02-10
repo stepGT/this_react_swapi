@@ -6,7 +6,7 @@ const PeopleList = ({ people }) => {
     <ul className={styles.list__container}>
       {people.map(({ id, name, imgSrc }) => (
         <li className={styles.list__item} key={id}>
-          <a href="#">
+          <a href={imgSrc}>
             <img
               className={styles.list__person_photo}
               alt={name}

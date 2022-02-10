@@ -28,6 +28,7 @@ const PeoplePage = ({ setErrorAPI }) => {
   };
   useEffect(() => {
     getResource(API_PEOPLE);
+    // eslint-disable-next-line
   }, []);
   return <>{people && <PeopleList people={people} />}</>;
 };

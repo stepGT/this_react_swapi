@@ -1,28 +1,25 @@
-import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import routesConfig from '../../routes/routesConfig';
+import Header from '@components/Header';
+import styles from './App.module.css';
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <NavLink to="/" exact>
-          Home
-        </NavLink>
-        <NavLink to="/people" exact>
-          People
-        </NavLink>
-        <Switch>
-          {routesConfig.map((route, index) => {
-            return (
+        <div className={styles.wrapper}>
+          <Header />
+          <Switch>
+            {routesConfig.map((route, index) => (
               <Route
                 key={index}
                 path={route.path}
                 exact={route.exact}
                 component={route.component}
               />
-            );
-          })}
-        </Switch>
+            ))}
+          </Switch>
+        </div>
       </BrowserRouter>
     </>
   );

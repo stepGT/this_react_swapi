@@ -1,6 +1,5 @@
-import PeoplePage from '@containers/PeoplePage';
-import HomePage from '@containers/HomePage';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
+import routesConfig from '../../routes/routesConfig';
 
 const App = () => {
   return (
@@ -12,9 +11,18 @@ const App = () => {
         <NavLink to="/people" exact>
           People
         </NavLink>
-
-        <Route path="/" exact component={HomePage} />
-        <Route path="/people" exact component={PeoplePage} />
+        <Switch>
+          {routesConfig.map((route, index) => {
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />
+            );
+          })}
+        </Switch>
       </BrowserRouter>
     </>
   );

@@ -5,9 +5,11 @@ import { API_PEOPLE } from '@constants/api';
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
 import PeopleList from '@components/PeoplePage/PeopleList'
 import { withErrorAPI } from '@hoc/withErrorAPI';
+import { useQueryParams } from '@hooks/useQueryParams';
 
 const PeoplePage = ({ setErrorAPI }) => {
   const [people, setPeople] = useState(null);
+  const queryPage = useQueryParams().get('page');
   const getResource = async (url) => {
     const res = await getApiResource(url);
     if (res) {
@@ -27,7 +29,7 @@ const PeoplePage = ({ setErrorAPI }) => {
     }
   };
   useEffect(() => {
-    getResource(API_PEOPLE);
+    getResource(API_PEOPLE + queryPage);
     // eslint-disable-next-line
   }, []);
   return <>{people && <PeopleList people={people} />}</>;

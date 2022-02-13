@@ -4,6 +4,7 @@ import { getApiResource } from '@utils/network';
 import { API_PEOPLE } from '@constants/api';
 import { getPeopleId, getPeopleImage, getPeoplePageID } from '@services/getPeopleData';
 import PeopleList from '@components/PeoplePage/PeopleList'
+import PeopleNavigation from '@components/PeoplePage/PeopleNavigation';
 import { withErrorAPI } from '@hoc/withErrorAPI';
 import { useQueryParams } from '@hooks/useQueryParams';
 
@@ -38,7 +39,17 @@ const PeoplePage = ({ setErrorAPI }) => {
     getResource(API_PEOPLE + queryPage);
     // eslint-disable-next-line
   }, []);
-  return <>{people && <PeopleList people={people} />}</>;
+  return (
+    <>
+      <PeopleNavigation
+        getResource={getResource}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        counterPage={counterPage}
+      />
+      {people && <PeopleList people={people} />}
+    </>
+  );
 };
 
 PeoplePage.propTypes = {

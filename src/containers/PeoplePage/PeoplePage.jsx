@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getApiResource } from '@utils/network';
 import { API_PEOPLE } from '@constants/api';
-import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
+import { getPeopleId, getPeopleImage, getPeoplePageID } from '@services/getPeopleData';
 import PeopleList from '@components/PeoplePage/PeopleList'
 import { withErrorAPI } from '@hoc/withErrorAPI';
 import { useQueryParams } from '@hooks/useQueryParams';
 
 const PeoplePage = ({ setErrorAPI }) => {
   const [people, setPeople] = useState(null);
+  const [prevPage, setPrevPage] = useState(null);
+  const [nextPage, setNextPage] = useState(null);
+  const [counterPage, setCounterPage] = useState(1);
   const queryPage = useQueryParams().get('page');
   const getResource = async (url) => {
     const res = await getApiResource(url);
@@ -23,6 +26,9 @@ const PeoplePage = ({ setErrorAPI }) => {
         };
       });
       setPeople(peopleList);
+      setPrevPage(res.previous);
+      setNextPage(res.next);
+      setCounterPage(getPeoplePageID(url));
       setErrorAPI(false);
     } else {
       setErrorAPI(true);

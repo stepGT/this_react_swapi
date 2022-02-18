@@ -12,7 +12,7 @@ const PersonLinkBack = () => {
   };
 
   return (
-    <a href={() => false} onClick={handleGoBack} className={styles.link}>
+    <a href="#" onClick={handleGoBack} className={styles.link}>
       <img className={styles.link__img} src={iconBack} alt="Go back" />
       <span>Go back</span>
     </a>

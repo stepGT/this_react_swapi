@@ -6,29 +6,35 @@ import {
   addPersonToFavorite,
 } from '@store/actions';
 
-const PersonPhoto = ({ personID, personPhoto, personName }) => {
+const PersonPhoto = ({ personID, personPhoto, personName, personFavorite, setPersonFavorite }) => {
   const dispatch = useDispatch();
-  const handleAdd = () => {
-    dispatch(
-      addPersonToFavorite({
-        [personID]: {
-          name: personName,
-          photo: personPhoto,
-        },
-      })
-    );
+
+  const handleFavoritePeople = () => {
+    if (personFavorite) {
+      dispatch(deletePersonToFavorite(personID));
+      setPersonFavorite(false);
+    } else {
+      dispatch(
+        addPersonToFavorite({
+          [personID]: {
+            name: personName,
+            photo: personPhoto,
+          },
+        })
+      );
+      setPersonFavorite(true);
+    }
   };
-  const handleDelete = () => {
-    dispatch(deletePersonToFavorite(personID));
-  }
   return (
     <>
       <div className={styles.container}>
         <img className={styles.photo} src={personPhoto} alt={personName} />
       </div>
-      <button onClick={handleAdd}>ADD</button>
-      <br />
-      <button onClick={handleDelete}>DELETE</button>
+      {
+        <button onClick={handleFavoritePeople}>
+          {personFavorite ? 'Delete' : 'Add'}
+        </button>
+      }
     </>
   );
 };
@@ -37,6 +43,8 @@ PersonPhoto.propTypes = {
   personID: PropTypes.string,
   personPhoto: PropTypes.string,
   personName: PropTypes.string,
+  personFavorite: PropTypes.bool,
+  setPersonFavorite: PropTypes.func,
 };
 
 export default PersonPhoto;

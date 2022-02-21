@@ -21,6 +21,11 @@ const Header = () => {
             Not Found
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/favorites" exact>
+            Favorites
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

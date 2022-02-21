@@ -6,6 +6,9 @@ import {
   addPersonToFavorite,
 } from '@store/actions';
 
+import iconFavorite from '@static/favorite.svg';
+import iconFavoriteFill from '@static/favorite-fill.svg';
+
 const PersonPhoto = ({ personID, personPhoto, personName, personFavorite, setPersonFavorite }) => {
   const dispatch = useDispatch();
 
@@ -29,12 +32,13 @@ const PersonPhoto = ({ personID, personPhoto, personName, personFavorite, setPer
     <>
       <div className={styles.container}>
         <img className={styles.photo} src={personPhoto} alt={personName} />
+        <img
+          src={personFavorite ? iconFavoriteFill : iconFavorite}
+          onClick={handleFavoritePeople}
+          className={styles.favorite}
+          alt="Add to favorite"
+        />
       </div>
-      {
-        <button onClick={handleFavoritePeople}>
-          {personFavorite ? 'Delete' : 'Add'}
-        </button>
-      }
     </>
   );
 };

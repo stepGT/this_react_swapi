@@ -8,7 +8,7 @@ export const addPersonToFavorite = person => ({
   payload: person,
 });
 
-export const deletePersonToFavorite = () => ({
+export const deletePersonToFavorite = personID => ({
   type: DELETE_PERSON_TO_FAVORITE,
-  payload: '',
+  payload: personID,
 });

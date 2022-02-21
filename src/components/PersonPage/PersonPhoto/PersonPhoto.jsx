@@ -19,7 +19,7 @@ const PersonPhoto = ({ personID, personPhoto, personName }) => {
     );
   };
   const handleDelete = () => {
-    dispatch(deletePersonToFavorite());
+    dispatch(deletePersonToFavorite(personID));
   }
   return (
     <>

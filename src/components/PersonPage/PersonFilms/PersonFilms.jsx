@@ -15,6 +15,7 @@ const PersonFilms = ({ personFilms }) => {
 
       setFilmsName(response);
     })();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -25,6 +25,7 @@ const UILoading = ({ theme = 'white', isShadow = true, classes }) => {
       default:
         setLoaderIcon(loaderBlack);
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

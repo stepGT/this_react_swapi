@@ -23,6 +23,7 @@ const FavoritesPage = () => {
 
       setPeople(res);
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -20,6 +20,7 @@ const PersonFilms = React.lazy(() =>
 );
 
 const PersonPage = ({ match, setErrorAPI }) => {
+  const [personID, setPersonID] = useState(null);
   const [personInfo, setPersonInfo] = useState(null);
   const [personName, setPersonName] = useState(null);
   const [personPhoto, setPersonPhoto] = useState(null);
@@ -29,6 +30,7 @@ const PersonPage = ({ match, setErrorAPI }) => {
     (async () => {
       const id = match.params.id;
       const res = await getApiResource(`${API_PERSON}/${id}/`);
+      setPersonID(id);
 
       if (res) {
         setPersonInfo([
@@ -59,7 +61,7 @@ const PersonPage = ({ match, setErrorAPI }) => {
         <span className={styles.person__name}>{personName}</span>
 
         <div className={styles.container}>
-          <PersonPhoto personPhoto={personPhoto} personName={personName} />
+          <PersonPhoto personID={personID} personPhoto={personPhoto} personName={personName} />
 
           {personInfo && <PersonInfo personInfo={personInfo} />}
 

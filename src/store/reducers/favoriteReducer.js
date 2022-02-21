@@ -3,9 +3,7 @@ import {
   DELETE_PERSON_TO_FAVORITE,
 } from '@store/constants/actionTypes';
 
-const initialState = {
-  hello: 1,
-};
+const initialState = {};
 
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {

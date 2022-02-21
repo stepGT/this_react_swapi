@@ -3,9 +3,9 @@ import {
   DELETE_PERSON_TO_FAVORITE,
 } from '@store/constants/actionTypes';
 
-export const addPersonToFavorite = () => ({
+export const addPersonToFavorite = person => ({
   type: ADD_PERSON_TO_FAVORITE,
-  payload: '',
+  payload: person,
 });
 
 export const deletePersonToFavorite = () => ({

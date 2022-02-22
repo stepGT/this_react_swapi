@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
+import Favorite from '@components/Favorite';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -21,12 +22,8 @@ const Header = () => {
             Not Found
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/favorites" exact>
-            Favorites
-          </NavLink>
-        </li>
       </ul>
+      <Favorite />
     </div>
   );
 };

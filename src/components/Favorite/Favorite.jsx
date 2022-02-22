@@ -14,7 +14,7 @@ const Favorite = () => {
     const length = Object.keys(storeDate).length;
     length.toString().length > 2 ? setCount('...') : setCount(length);
     // eslint-disable-next-line
-  }, []);
+  }, [storeDate]);
 
   return (
     <div className={styles.container}>

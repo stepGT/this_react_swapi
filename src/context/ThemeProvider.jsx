@@ -11,7 +11,6 @@ export const ThemeProvider = ({ children, ...props }) => {
   const [theme, setTheme] = useState(null);
 
   const change = (name) => {
-    console.log(name);
     setTheme(name);
     changeCssVariables(name);
   };

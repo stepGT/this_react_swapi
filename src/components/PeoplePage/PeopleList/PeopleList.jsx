@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const PeopleList = ({ people }) => {
   return (
     <ul className={styles.list__container}>
-      {people.map(({ id, name, imgSrc }) => (
+      {people.map(({ id, name, photo }) => (
         <li className={styles.list__item} key={id}>
           <Link to={`/people/${id}`}>
             <img
               className={styles.list__person_photo}
               alt={name}
-              src={imgSrc}
+              src={photo}
             />
             <p>{name}</p>
           </Link>

@@ -1,5 +1,5 @@
 import UIVideo from './UIVideo';
-import video from '@static/han-solo.mp4';
+import video from '../../../static/han-solo.mp4';
 
 export default {
   title: 'UI-Kit/UIVideo',

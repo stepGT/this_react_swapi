@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import icon from '@static/cancel.svg';
+import icon from '../../../static/cancel.svg';
 
 import '../index.css';
 import styles from './UIInput.module.css';

@@ -19,11 +19,11 @@ const PeoplePage = ({ setErrorAPI }) => {
     if (res) {
       const peopleList = res.results.map(({ name, url }) => {
         const id = getPeopleId(url);
-        const imgSrc = getPeopleImage(id);
+        const photo = getPeopleImage(id);
         return {
           id,
           name,
-          imgSrc,
+          photo,
         };
       });
       setPeople(peopleList);
